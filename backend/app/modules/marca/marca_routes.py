@@ -44,9 +44,9 @@ def modificar(id):
         data['id'] = id
         marcas = MarcaController.update(data)
         if marcas:
-            return jsonify({'mensaje':'marca creada correctamente'}), 200
+            return jsonify({'mensaje':'marca editada correctamente'}), 200
         else:
-            return jsonify({"mensaje": "error al crear el producto"}),500
+            return jsonify({"mensaje": "error al editar la marca"}),500
     except Exception as e:
         return jsonify({"mensaje":f"error : {str(e)}"}), 500
     
@@ -55,8 +55,8 @@ def eliminar(id):
     try:
         marcas = MarcaController.delete(id)
         if marcas:
-            return jsonify({'mensaje':'marca creada correctamente'}), 200
+            return jsonify({'mensaje':'marca eliminada correctamente'}), 200
         else:
-            return jsonify({"mensaje": "error al crear el producto"}),500
+            return jsonify({"mensaje": "error al eliminar la marca"}),500
     except Exception as e:
         return jsonify({"mensaje":f"error : {str(e)}"}), 500

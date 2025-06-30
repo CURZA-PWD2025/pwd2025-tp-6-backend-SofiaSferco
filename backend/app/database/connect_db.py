@@ -34,23 +34,6 @@ class connectDB:
             finally:
                 cxn.close()
 
-    # @staticmethod
-    # def write(sql: str, params: tuple):
-    #     cxn = connectDB.get_connect()
-    #     try:
-    #         with cxn.cursor() as cursor:
-    #             cursor.execute(sql, params)
-    #             cxn.commit()
-    #             if cursor.lastrowid:
-    #                 return cursor.lastrowid  # Devuelve id generado en INSERT
-    #             else:
-    #                 count = cursor.rowcount
-    #             return True if count > 0 else False  # True si filas afectadas, sino False
-    #     except Exception as e:
-    #         print(f"Error en la consulta: {e}")
-    #         return False
-    #     finally:
-    #         cxn.close()
 
     @staticmethod
     def write(sql: str, params: tuple):
@@ -61,10 +44,9 @@ class connectDB:
                 cxn.commit()
 
                 if sql.strip().upper().startswith("INSERT"):
-                    return cursor.lastrowid  # solo para INSERT
+                    return cursor.lastrowid  
 
-                return cursor.rowcount > 0  # para UPDATE/DELETE: True si afectó filas
-
+                return cursor.rowcount > 0  
         except Exception as e:
             print(f"Error en la consulta: {e}")
             return False

@@ -32,7 +32,7 @@ def get_one(id):
         return jsonify({"mensaje":f"error : {str(e)}"}), 500
 
 
-@articulos_bp.route("/articulo/", methods=["POST"])
+@articulos_bp.route("/articulos/", methods=["POST"])
 def create():
     try:
         data = request.get_json()
@@ -44,7 +44,7 @@ def create():
     except Exception as e:
         return jsonify({"mensaje":f"error : {str(e)}"}), 500
 
-@articulos_bp.route('/articulo/<int:id>', methods=['PUT'])
+@articulos_bp.route('/articulos/<int:id>', methods=['PUT'])
 def update(id):
     try:
         data = request.get_json()
@@ -57,7 +57,7 @@ def update(id):
     except Exception as e:
         return jsonify({'mensaje' : f'error al modificar articulo {e}'}), 500
 
-@articulos_bp.route('/articulo/<int:id>', methods=['DELETE'])
+@articulos_bp.route('/articulos/<int:id>', methods=['DELETE'])
 def delete(id):
     try:
         articulo= ArticulosController.delete(id)

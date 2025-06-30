@@ -16,18 +16,13 @@ class ArticulosController:
         articulo = ArticuloModel.get_by_id(id=id)
         return articulo
 
-    # @staticmethod
-    # def create(data: dict):
-    #     articulos = ArticuloModel(
-    #         descripcion=data['descripcion'], precio=data['precio'], stock=data['stock'], )
-    #     return articulos.create()
-    
+
     @staticmethod
     def create(data: dict):
         print("Data recibida en create:", data)
         
         
-        categorias_ids = data['categorias']  # Ejemplo: [3, 5, 9]
+        categorias_ids = data['categorias']  
         marca = Marca(id=data['marca_id'])
         proveedor = Proveedor(id=data['proveedor_id'])
     

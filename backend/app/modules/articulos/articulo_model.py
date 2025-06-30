@@ -66,7 +66,7 @@ class ArticuloModel:
 
         try:
             with cnx.cursor(dictionary=True) as cursor:
-            # Paso 1: traer los IDs de categoría desde la tabla intermedia
+
                 sql = "SELECT categoria_id FROM ARTICULOS_CATEGORIAS WHERE articulo_id = %s"
                 cursor.execute(sql, (id,))
                 result = cursor.fetchall()
@@ -74,7 +74,6 @@ class ArticuloModel:
                 if result:
                     categoria_ids = [row['categoria_id'] for row in result]
 
-                # Paso 2: si hay IDs, consultamos la tabla CATEGORIAS
                     if categoria_ids:
                         formato = ','.join(['%s'] * len(categoria_ids))
                         sql_categorias = f"SELECT id, nombre FROM CATEGORIAS WHERE id IN ({formato})"
@@ -91,8 +90,8 @@ class ArticuloModel:
         with cnx.cursor(dictionary=True) as cursor:
             print(id)
             try:
-                cursor.execute("SELECT * FROM ARTICULOS where id = %s", (id,)) #ejecuta la query
-                row = cursor.fetchone() #guarda en una  variable en un resultado
+                cursor.execute("SELECT * FROM ARTICULOS where id = %s", (id,)) 
+                row = cursor.fetchone() 
                 
                 if row:
                     marca = Marca.get_by_id(row['marca_id'])
@@ -109,7 +108,7 @@ class ArticuloModel:
                 print(f"error al listar marca {exc}")
                 return False
             finally:
-                cnx.close()#cierra la conexion
+                cnx.close()
 
 
 
