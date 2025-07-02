@@ -1,0 +1,118 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+body, html{
+  background-color: rgb(32, 32, 32) !important;
+  height: 100%;
+  margin: 0;
+  color: rgb(200, 200, 200)
+}
+
+/*tablas*/
+table {
+  margin-left: 1rem;  
+  margin-right: auto;
+  margin-top: 2rem;
+  border-collapse: collapse;
+  width: auto;
+  max-width: 95%; 
+}
+thead {
+  background-color: #111111;
+}
+
+table tbody tr {
+  border-top: 1px solid rgb(100, 100, 100);
+}
+
+table th, table td {
+  border: none;
+}
+
+/*botton de crear*/
+button {
+  background-color: #f1c40f;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button a {
+  text-decoration: none;
+  color: black;
+}
+button:hover {
+  background-color: rgb(133, 114, 8);  
+}
+/*formularios*/
+form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
+  max-width: 400px; 
+  margin: 0 auto; 
+  padding: 20px;
+  
+  border-radius: 6px;
+  background-color: #111111;
+
+}
+
+/* Para que los labels y inputs se ajusten y tengan buen ancho */
+label {
+  align-self: flex-start; 
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%; 
+  padding: 8px;
+  box-sizing: border-box;
+  
+  border-radius: 4px;
+}
+select[multiple] {
+  height: 120px; /* o el alto que quieras */
+  resize: vertical; /* opcional: permite al usuario agrandar */
+}
+/* boton volver del create*/
+
+.btn-volver {
+  display: block;
+  margin: 20px auto; 
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  width: max-content; 
+}
+
+/*tarjeta -show*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.card {
+  background: #111111;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  width: 300px;
+}
