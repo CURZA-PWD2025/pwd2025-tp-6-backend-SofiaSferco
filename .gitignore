@@ -4,3 +4,5 @@ migrate
 _module
 db_init.py
 db_rollback.py
+__pycache__/
+*.pyc
