@@ -21,22 +21,22 @@ class ArticuloController:
         nuevo = ArticuloModel.deserializar(data)
         if nuevo.create():
             return nuevo.serializar(), 201
-        return {"error": "No se creó el articulo"}, 500
+        return {"error": "No se cró el articulo"}, 500
 
     @staticmethod
     def update(id, data):
         if not ArticuloModel.get_one(id):
-            return {"error": "No se encontró el articulo"}, 404
+            return {"error": "Artículo no encontrado"}, 404
         data["id"] = id
         articulo = ArticuloModel.deserializar(data)
         if articulo.update():
             return articulo.serializar(), 200
-        return {"error": "No se actualizó el articulo"}, 500
+        return {"error": "No se pudo actualizar"}, 500
 
     @staticmethod
     def delete(id):
         if not ArticuloModel.get_one(id):
-            return {"error": "No se encontró el articulo"}, 404
+            return {"error": "Artículo no encontrado"}, 404
         if ArticuloModel.delete(id):
-            return {"message": "Se eliminó el articulo"}, 200
-        return {"error": "No se eliminó el articulo"}, 500
+            return {"message": "Eliminado con éxito"}, 200
+        return {"error": "No se pudo eliminar"}, 500

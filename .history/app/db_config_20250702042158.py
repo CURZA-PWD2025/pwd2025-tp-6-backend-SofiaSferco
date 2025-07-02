@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from mysql.connector.pooling import MySQLConnectionPool
 
 load_dotenv()
+
 class ConexionDB:
     pool = None
 
@@ -20,9 +21,9 @@ class ConexionDB:
                     database=os.getenv("DB_NAME"),
                     port=int(os.getenv("DB_PORT") or 3306)
                 )
-                print("Pool de conexiones iniciado")
+                print("✅ Pool de conexiones iniciado")
             except mysql.connector.Error as err:
-                print(f"Error al crear el pool: {err}")
+                print(f"❌ Error al crear el pool: {err}")
                 cls.pool = None
 
     @classmethod
@@ -33,11 +34,12 @@ class ConexionDB:
             try:
                 return cls.pool.get_connection()
             except mysql.connector.Error as err:
-                print(f"Error al obtener conexión: {err}")
+                print(f"❌ Error al obtener conexión: {err}")
                 return None
         else:
             return None
 
+# Función externa para importar desde los modelos
 def get_db_connection():
     return ConexionDB.obtener_conexion()
 

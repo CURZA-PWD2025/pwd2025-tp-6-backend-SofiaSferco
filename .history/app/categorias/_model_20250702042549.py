@@ -1,23 +1,38 @@
 from app.db_config import get_db_connection
 
-class MarcaModel:
-    def __init__(self, id=None, nombre=None):
+class ProveedorModel:
+    def __init__(self, id=None, nombre=None, telefono=None, direccion=None, email=None):
         self.id = id
         self.nombre = nombre
+        self.telefono = telefono
+        self.direccion = direccion
+        self.email = email
 
     def serializar(self):
-        return {"id": self.id, "nombre": self.nombre}
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "telefono": self.telefono,
+            "direccion": self.direccion,
+            "email": self.email
+        }
 
     @staticmethod
     def deserializar(data):
-        return MarcaModel(id=data.get("id"), nombre=data.get("nombre"))
+        return ProveedorModel(
+            id=data.get("id"),
+            nombre=data.get("nombre"),
+            telefono=data.get("telefono"),
+            direccion=data.get("direccion"),
+            email=data.get("email")
+        )
 
     @staticmethod
     def get_all():
         conn = get_db_connection()
         if not conn: return []
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM MARCAS")
+        cursor.execute("SELECT * FROM PROVEEDORES")
         resultado = cursor.fetchall()
         cursor.close()
         conn.close()
@@ -28,18 +43,21 @@ class MarcaModel:
         conn = get_db_connection()
         if not conn: return None
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM MARCAS WHERE id = %s", (id,))
-        marca = cursor.fetchone()
+        cursor.execute("SELECT * FROM PROVEEDORES WHERE id = %s", (id,))
+        proveedor = cursor.fetchone()
         cursor.close()
         conn.close()
-        return marca
+        return proveedor
 
     def create(self):
         conn = get_db_connection()
         if not conn: return False
         cursor = conn.cursor()
         try:
-            cursor.execute("INSERT INTO MARCAS (nombre) VALUES (%s)", (self.nombre,))
+            cursor.execute(
+                "INSERT INTO PROVEEDORES (nombre, telefono, direccion, email) VALUES (%s, %s, %s, %s)",
+                (self.nombre, self.telefono, self.direccion, self.email)
+            )
             conn.commit()
             self.id = cursor.lastrowid
             return True
@@ -55,7 +73,10 @@ class MarcaModel:
         if not conn: return False
         cursor = conn.cursor()
         try:
-            cursor.execute("UPDATE MARCAS SET nombre = %s WHERE id = %s", (self.nombre, self.id))
+            cursor.execute(
+                "UPDATE PROVEEDORES SET nombre=%s, telefono=%s, direccion=%s, email=%s WHERE id=%s",
+                (self.nombre, self.telefono, self.direccion, self.email, self.id)
+            )
             conn.commit()
             return cursor.rowcount > 0
         except:
@@ -71,7 +92,7 @@ class MarcaModel:
         if not conn: return False
         cursor = conn.cursor()
         try:
-            cursor.execute("DELETE FROM MARCAS WHERE id = %s", (id,))
+            cursor.execute("DELETE FROM PROVEEDORES WHERE id = %s", (id,))
             conn.commit()
             return cursor.rowcount > 0
         except:
@@ -80,6 +101,4 @@ class MarcaModel:
         finally:
             cursor.close()
             conn.close()
-
-
 

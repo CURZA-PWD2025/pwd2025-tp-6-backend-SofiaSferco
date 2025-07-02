@@ -118,3 +118,6 @@ class ArticuloModel:
         finally:
             cursor.close()
             conn.close()
+
+
+

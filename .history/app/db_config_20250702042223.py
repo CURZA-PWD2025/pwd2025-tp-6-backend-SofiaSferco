@@ -38,6 +38,7 @@ class ConexionDB:
         else:
             return None
 
+# Función externa para importar desde los modelos
 def get_db_connection():
     return ConexionDB.obtener_conexion()
 
