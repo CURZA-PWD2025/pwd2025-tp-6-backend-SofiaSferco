@@ -8,10 +8,10 @@ load_dotenv()
 DB_NAME = os.getenv("DB_NAME")
 
 DB_CONFIG = {
-    'host': os.getenv("DB_HOST"),
-    'user': os.getenv("DB_USER"),
-    'password': os.getenv("DB_PASSWORD"),
-    'port': os.getenv("DB_PORT"),
+    'host': os.getenv('DB_HOST'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'port': int(os.getenv('DB_PORT')),
     'raise_on_warnings': True,
 }
 TABLES = {}
