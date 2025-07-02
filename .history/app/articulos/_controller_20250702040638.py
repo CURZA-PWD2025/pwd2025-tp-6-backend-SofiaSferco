@@ -36,10 +36,10 @@ class ArticuloController:
     @staticmethod
     def delete(id):
         if not ArticuloModel.get_one(id):
-            return {"error": "No se encontró el articulo"}, 404
+            return {"error": "Artículo no encontrado"}, 404
         if ArticuloModel.delete(id):
-            return {"message": "Se eliminó el articulo"}, 200
-        return {"error": "No se eliminó el articulo"}, 500
+            return {"message": "Artículo eliminado con éxito"}, 200
+        return {"error": "No se pudo eliminar el artículo"}, 500
 
 
 
