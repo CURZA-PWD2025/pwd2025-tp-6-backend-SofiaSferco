@@ -23,11 +23,6 @@ const routes = [
     component: CrearMarca
   },
   {
-    path: '/marcas/test-create',
-    name: 'test_create',
-    component: TestCreate
-  },
-  {
     path: '/marcas/:id',
     name: 'marcas_detalle',
     component: MarcaDetalle,
@@ -39,6 +34,11 @@ const routes = [
     component: EditarMarca,
     props: true
   },
+  {
+    path: '/test-create',
+    name: 'test_create',
+    component: TestCreate
+  }
 ]
 
 const router = createRouter({
@@ -47,4 +47,3 @@ const router = createRouter({
 })
 
 export default router
-

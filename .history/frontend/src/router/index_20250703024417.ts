@@ -4,7 +4,6 @@ import MarcasList from '@/components/marcas/MarcasList.vue'
 import CrearMarca from '@/components/marcas/MarcasCreate.vue'
 import MarcaDetalle from '@/components/marcas/MarcasShow.vue'
 import EditarMarca from '@/components/marcas/MarcasUpdate.vue'
-import TestCreate from '@/components/marcas/TestCreate.vue'
 
 const routes = [
   {
@@ -21,11 +20,6 @@ const routes = [
     path: '/marcas/crear',
     name: 'marcas_crear',
     component: CrearMarca
-  },
-  {
-    path: '/marcas/test-create',
-    name: 'test_create',
-    component: TestCreate
   },
   {
     path: '/marcas/:id',
@@ -46,5 +40,6 @@ const router = createRouter({
   routes
 })
 
-export default router
 
+
+export default router

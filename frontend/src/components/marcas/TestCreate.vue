@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h2>Crear Marca</h2>
+    <h2>Test Crear Marca</h2>
     <form @submit.prevent="crear">
-      <label for="nombre">Nombre de la marca:</label>
-      <input id="nombre" type="text" v-model="nombre" placeholder="Ingrese nombre" />
+      <input v-model="nombre" placeholder="Nombre de la marca" />
       <button type="submit">Crear</button>
     </form>
 
@@ -28,10 +27,10 @@ async function crear() {
     return
   }
   try {
-    await store.create({ id: 0, nombre: nombre.value.trim() })
+    await store.create({ id: 0, nombre: nombre.value.trim() }) // id=0 para crear
     alert('Marca creada con éxito')
     nombre.value = ''
-    router.push({ name: 'marcas_list' })
+    router.push({ name: 'marcas_list' }) // vuelve al listado para ver la nueva marca
   } catch (error) {
     alert('Error al crear marca')
     console.error(error)
