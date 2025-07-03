@@ -36,7 +36,7 @@ export const useMarcasStore = defineStore("marcas", () => {
   async function create(marcaData: Marca) {
     try {
       await ApiService.create(url, marcaData);
-      await getAll(); 
+      await getAll(); // recarga todas después de crear
     } catch (error) {
       console.error("Error al crear marca:", error);
     }

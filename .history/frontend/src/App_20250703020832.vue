@@ -8,8 +8,8 @@
     <div class="nav-links">
       <router-link :to="{ name: 'marcas_list' }">Marcas</router-link>
       <!-- <router-link :to="{ name: 'categorias_list' }">Categorias</router-link> -->
-       <!-- <router-link :to="{ name: 'proveedores_list' }">Proveedores</router-link>-->
-       <!-- <router-link :to="{ name: 'articulos_list' }">Articulos</router-link>-->
+      <router-link :to="{ name: 'proveedores_list' }">Proveedores</router-link>
+      <router-link :to="{ name: 'articulos_list' }">Articulos</router-link>
     </div>
   </nav>
 

@@ -7,11 +7,6 @@ import EditarMarca from '@/components/marcas/MarcasUpdate.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    redirect: { name: 'marcas_list' }  // redirige al listado de marcas
-  },
-  {
     path: '/marcas',
     name: 'marcas_list',
     component: MarcasList
@@ -33,6 +28,7 @@ const routes = [
     component: EditarMarca,
     props: true
   },
+ 
 ]
 
 const router = createRouter({

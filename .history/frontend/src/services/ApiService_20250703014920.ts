@@ -1,8 +1,6 @@
-// src/services/ApiService.ts
-
 import { instance } from '@/plugins/axios';
 
-const ApiService = {
+export default {
   async getAll(resource: string) {
     const response = await instance.get(`/${resource}`);
     return response.data;
@@ -28,5 +26,3 @@ const ApiService = {
     return response.data;
   }
 };
-
-export default ApiService;

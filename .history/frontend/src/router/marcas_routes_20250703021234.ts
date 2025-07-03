@@ -1,5 +1,3 @@
-// src/router/marcas_routes.ts (o .js según uses)
-
 const marcas_routes = [
   {
     path: '/marcas',
@@ -14,12 +12,12 @@ const marcas_routes = [
       },
       {
         path: ':id/show',
-        name: 'marcas_mostrar',
+        name: 'marcas_detalle',
         component: () => import('../components/marcas/MarcasShow.vue'),
         props: true,
       },
       {
-        path: 'create',
+        path: 'crear',
         name: 'marcas_crear',
         component: () => import('../components/marcas/MarcasCreate.vue'),
       },

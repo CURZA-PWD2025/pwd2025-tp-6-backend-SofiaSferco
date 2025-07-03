@@ -1,5 +1,3 @@
-// src/router/marcas_routes.ts (o .js según uses)
-
 const marcas_routes = [
   {
     path: '/marcas',
@@ -14,20 +12,20 @@ const marcas_routes = [
       },
       {
         path: ':id/show',
-        name: 'marcas_mostrar',
+        name: 'marcas_show',
         component: () => import('../components/marcas/MarcasShow.vue'),
-        props: true,
+        props: true,  // <--- Agregado
       },
       {
         path: 'create',
-        name: 'marcas_crear',
+        name: 'marcas_create',
         component: () => import('../components/marcas/MarcasCreate.vue'),
       },
       {
-        path: ':id/editar',
+        path: ':id/edit',
         name: 'marcas_editar',
         component: () => import('../components/marcas/MarcasUpdate.vue'),
-        props: true,
+        props: true,  // <--- Agregado
       },
     ],
   },

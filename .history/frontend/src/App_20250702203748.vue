@@ -1,25 +1,24 @@
 <template>
   <nav>
     <div class="home">
-      <router-link :to="{ name: 'home' }">
-        <Icon icon="tabler:home" />
-      </router-link>
+    <router-link :to="{name:'home'}"> <Icon icon="tabler:home" /> </router-link>
     </div>
     <div class="nav-links">
-      <router-link :to="{ name: 'marcas_list' }">Marcas</router-link>
-      <!-- <router-link :to="{ name: 'categorias_list' }">Categorias</router-link> -->
-       <!-- <router-link :to="{ name: 'proveedores_list' }">Proveedores</router-link>-->
-       <!-- <router-link :to="{ name: 'articulos_list' }">Articulos</router-link>-->
+    <router-link :to="{name:'marcas'}">Marcas</router-link>
+    <router-link :to="{name:'categorias'}">Categorias</router-link>
+    <router-link :to="{name:'proveedores'}">Proveedores</router-link>
+    <router-link :to="{name:'articulos'}">Articulos</router-link>
     </div>
   </nav>
 
   <main>
     <router-view />
   </main>
-</template>
 
+</template>
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
+
 </script>
 
 <style scoped>
@@ -45,9 +44,11 @@ nav a {
   color: yellow;         
   text-decoration: none;   
 }
+
 nav a:visited {
   color: yellow;          
 }
+
 nav a:hover {
   color: rgb(133, 114, 8);            
   text-decoration: none; 

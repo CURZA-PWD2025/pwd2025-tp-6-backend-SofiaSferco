@@ -1,16 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import MarcasList from '@/components/marcas/MarcasList.vue'
-import CrearMarca from '@/components/marcas/MarcasCreate.vue'
-import MarcaDetalle from '@/components/marcas/MarcasShow.vue'
-import EditarMarca from '@/components/marcas/MarcasUpdate.vue'
+import CrearMarca from '@/components/marcas/CrearMarca.vue'
+import MarcaDetalle from '@/components/marcas/MarcaDetalle.vue'
+import EditarMarca from '@/components/marcas/EditarMarca.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    redirect: { name: 'marcas_list' }  // redirige al listado de marcas
-  },
   {
     path: '/marcas',
     name: 'marcas_list',
@@ -33,6 +28,7 @@ const routes = [
     component: EditarMarca,
     props: true
   },
+  // Podés agregar aquí más rutas si querés
 ]
 
 const router = createRouter({

@@ -1,23 +1,23 @@
-import { defineStore } from "pinia";
-import { ref } from "vue";
-import type Marca from "../interfaces/Marca";
-import ApiService from "@/services/ApiService";
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
+import type Marca from '../interfaces/Marca';
+import ApiService from '@/services/ApiService';
 
-export const useMarcasStore = defineStore("marcas", () => {
+export const useMarcaStore = defineStore('marcas', () => {
   const marcas = ref<Marca[]>([]);
   const marca = ref<Marca>({
     id: 0,
-    nombre: "",
+    nombre: '',
   });
-  const url = "marcas";
+  const url = 'marcas';
 
   async function getAll() {
     try {
       const data = await ApiService.getAll(url);
-      console.log("Datos recibidos:", data);
+      console.log('Datos recibidos:', data);
       marcas.value = data ?? [];
     } catch (error) {
-      console.error("Error al cargar marcas:", error);
+      console.error('Error al cargar marcas:', error);
       marcas.value = [];
     }
   }
@@ -29,36 +29,36 @@ export const useMarcasStore = defineStore("marcas", () => {
         marca.value = data;
       }
     } catch (error) {
-      console.error("Error al obtener marca:", error);
+      console.error('Error al cargar la marca:', error);
     }
   }
 
   async function create(marcaData: Marca) {
     try {
       await ApiService.create(url, marcaData);
-      await getAll(); 
+      await getAll(); // refrescar lista después de crear
     } catch (error) {
-      console.error("Error al crear marca:", error);
+      console.error('Error al crear marca:', error);
     }
   }
 
   async function update(marcaData: Marca) {
-    if (marcaData.id) {
-      try {
+    try {
+      if (marcaData.id) {
         await ApiService.update(url, marcaData.id, marcaData);
-        await getAll(); // recarga para reflejar cambios
-      } catch (error) {
-        console.error("Error al actualizar marca:", error);
+        await getAll(); // refrescar lista después de actualizar
       }
+    } catch (error) {
+      console.error('Error al actualizar marca:', error);
     }
   }
 
   async function destroy(id: number) {
     try {
       await ApiService.delete(url, id);
-      await getAll(); // recarga para reflejar cambios
+      await getAll(); // refrescar lista después de borrar
     } catch (error) {
-      console.error("Error al eliminar marca:", error);
+      console.error('Error al eliminar marca:', error);
     }
   }
 
