@@ -1,13 +1,6 @@
 <template>
   <div>
     <h2>Listado de Marcas</h2>
-    <router-link
-      :to="{ name: 'marcas_crear' }"
-      style="display: inline-block; margin-bottom: 1em; padding: 0.5em 1em; background-color: #42b983; color: white; border-radius: 4px; text-decoration: none;"
-    >
-      Crear Marca
-    </router-link>
-
     <ul>
       <li v-for="marca in store.marcas" :key="marca.id" style="margin-bottom: 0.5em;">
         {{ marca.nombre }}
